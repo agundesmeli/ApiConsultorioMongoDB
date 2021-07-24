@@ -15,7 +15,6 @@ import java.time.LocalDate;
 public class Turn {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Field(name = "id_turn")
     private Long id;
 

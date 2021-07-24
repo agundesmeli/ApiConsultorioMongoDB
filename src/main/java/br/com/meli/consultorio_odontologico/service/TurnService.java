@@ -24,6 +24,10 @@ public class TurnService {
         return turnRepository.findAll();
     }
 
+    public void addTurn(Turn turn) {
+        turnRepository.save(turn);
+    }
+
     public List<Turn> getDentistTurns(String name) {
         return turnRepository.findByDiary_Dentist_Name(name);
     }

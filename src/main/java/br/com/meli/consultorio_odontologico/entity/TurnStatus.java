@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class TurnStatus {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Field(name = "id_turn_status")
     private Long id;
 

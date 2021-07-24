@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Field(name = "id_user")
     private Long id;
 

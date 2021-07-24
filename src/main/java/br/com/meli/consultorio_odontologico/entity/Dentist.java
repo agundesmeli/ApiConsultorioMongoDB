@@ -14,7 +14,6 @@ import java.util.Date;
 public class Dentist {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Field(name = "id_dentist")
     private Long id;
 

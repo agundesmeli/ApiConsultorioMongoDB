@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 public class Diary {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Field(name = "id_diary")
     private Long id;
 

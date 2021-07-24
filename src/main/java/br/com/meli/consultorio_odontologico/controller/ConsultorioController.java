@@ -1,14 +1,12 @@
 package br.com.meli.consultorio_odontologico.controller;
 
+import br.com.meli.consultorio_odontologico.entity.Turn;
 import br.com.meli.consultorio_odontologico.service.DentistService;
 import br.com.meli.consultorio_odontologico.service.PatientService;
 import br.com.meli.consultorio_odontologico.service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -28,6 +26,12 @@ public class ConsultorioController {
         this.patientService = patientService;
         this.dentistService = dentistService;
         this.turnService = turnService;
+    }
+
+    @PostMapping("/turn")
+    public ResponseEntity<?> createTurn(@RequestBody Turn turn) {
+        turnService.addTurn(turn);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/turns")
