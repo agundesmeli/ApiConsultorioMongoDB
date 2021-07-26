@@ -20,19 +20,19 @@ public class TurnService {
     }
 
     public List<Turn> getAllTurns() {
-        return turnRepository.findAll();
+        return this.turnRepository.findAll();
     }
 
     public void addTurn(Turn turn) {
-        turnRepository.insert(turn);
+        this.turnRepository.insert(turn);
     }
 
     public List<Turn> getDentistTurns(String name) {
-        return turnRepository.findByDiary_Dentist_Name(name);
+        return this.turnRepository.findAllByDiary_Dentist_Name(name);
     }
 
     public List<Turn> getTurnsByState(String name) {
-        return turnRepository.findByTurnStatus_Name(name);
+        return this.turnRepository.findAllByTurnStatus_Name(name);
     }
 
 }

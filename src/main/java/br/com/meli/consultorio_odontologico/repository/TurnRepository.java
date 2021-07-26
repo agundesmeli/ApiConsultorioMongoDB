@@ -10,10 +10,8 @@ import java.util.List;
 @Repository
 public interface TurnRepository extends MongoRepository<Turn, String> {
 
-    @Query("{ 'name' : ?0 }")
-    List<Turn> findByDiary_Dentist_Name(String name);
+    List<Turn> findAllByDiary_Dentist_Name(String name);
 
-    @Query("{ 'name' : ?0 }")
-    List<Turn> findByTurnStatus_Name(String name);
+    List<Turn> findAllByTurnStatus_Name(String name);
 
 }
