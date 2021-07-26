@@ -2,7 +2,6 @@ package br.com.meli.consultorio_odontologico.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -16,17 +15,15 @@ public class Turn {
 
     @Id
     @Field(name = "id_turn")
-    private Long id;
+    private Long turnId;
 
     private LocalDate day;
 
-    @DBRef
+    @Field(name = "turn_status")
     private TurnStatus turnStatus;
 
-    @DBRef
     private Diary diary;
 
-    @DBRef
     private Patient patient;
 
     public Turn(LocalDate day, TurnStatus turnStatus, Diary diary, Patient patient) {

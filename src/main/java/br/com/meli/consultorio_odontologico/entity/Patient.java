@@ -15,7 +15,7 @@ public class Patient {
 
     @Id
     @Field(name = "id_patient")
-    private Long id;
+    private Long patientId;
 
     private String name;
 
@@ -42,4 +42,5 @@ public class Patient {
         this.phone = phone;
         this.email = email;
     }
+
 }

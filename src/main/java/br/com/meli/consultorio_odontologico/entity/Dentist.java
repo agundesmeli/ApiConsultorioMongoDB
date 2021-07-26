@@ -15,7 +15,7 @@ public class Dentist {
 
     @Id
     @Field(name = "id_dentist")
-    private Long id;
+    private Long dentistId;
 
     private String name;
 

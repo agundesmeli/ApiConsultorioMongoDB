@@ -14,7 +14,7 @@ public class TurnStatus {
 
     @Id
     @Field(name = "id_turn_status")
-    private Long id;
+    private Long turnStatusId;
 
     @Enumerated(EnumType.STRING)
     private TurnStatusEnum name;

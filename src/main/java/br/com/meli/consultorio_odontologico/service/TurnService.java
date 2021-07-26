@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -25,7 +24,7 @@ public class TurnService {
     }
 
     public void addTurn(Turn turn) {
-        turnRepository.save(turn);
+        turnRepository.insert(turn);
     }
 
     public List<Turn> getDentistTurns(String name) {
