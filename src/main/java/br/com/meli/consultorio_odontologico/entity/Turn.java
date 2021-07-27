@@ -3,7 +3,6 @@ package br.com.meli.consultorio_odontologico.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,23 +12,22 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Turn {
 
-    @Id
-    @Field(name = "id_turn")
-    private Long turnId;
+    private String _id;
 
     private LocalDate day;
 
-    @Field(name = "turn_status")
-    private TurnStatus turnStatus;
-
-    private Diary diary;
+    @Enumerated(EnumType.STRING)
+    private TurnStatusEnum status;
 
     private Patient patient;
 
-    public Turn(LocalDate day, TurnStatus turnStatus, Diary diary, Patient patient) {
+    private Dentist dentist;
+
+    public Turn(LocalDate day, TurnStatusEnum status, Patient patient, Dentist dentist) {
+        this._id = this.get_id();
         this.day = day;
-        this.turnStatus = turnStatus;
-        this.diary = diary;
+        this.status = status;
         this.patient = patient;
+        this.dentist = dentist;
     }
 }

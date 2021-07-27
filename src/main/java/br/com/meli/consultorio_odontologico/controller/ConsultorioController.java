@@ -44,9 +44,9 @@ public class ConsultorioController {
         return ResponseEntity.ok().body(turnService.getDentistTurns(name));
     }
 
-    @GetMapping("/turns/status/{name}")
-    public ResponseEntity<?> getAllTurnsWithStatus(@PathVariable String name) {
-        return ResponseEntity.ok().body(turnService.getTurnsByState(name));
+    @GetMapping("/turns/status/{status}")
+    public ResponseEntity<?> getAllTurnsWithStatus(@PathVariable String status) {
+        return ResponseEntity.ok().body(turnService.getTurnsByStatus(status));
     }
 
 }
