@@ -7,8 +7,12 @@ import br.com.meli.consultorio_odontologico.service.TurnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import java.time.LocalDate;
+import javax.validation.Valid;
+import java.net.URI;
+
+
 
 @RestController
 @RequestMapping("/consultorio")
@@ -29,9 +33,10 @@ public class ConsultorioController {
     }
 
     @PostMapping("/turn")
-    public ResponseEntity<?> createTurn(@RequestBody Turn turn) {
+    public ResponseEntity<?> createTurn(@RequestBody @Valid Turn turn, UriComponentsBuilder uriBuilder) {
         turnService.addTurn(turn);
-        return ResponseEntity.ok().build();
+        URI uri = uriBuilder.path("/consultorio/turn/{id}").buildAndExpand(turn.get_id()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @GetMapping("/turns")
